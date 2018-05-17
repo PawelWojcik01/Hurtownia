@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{75E87A06-35AC-4EA2-8B59-1A29B0BA6467}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{15401BEF-7105-432E-AE6F-7607AAAB6A81}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -452,11 +452,11 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Dane"
+              refId="Package\Data Flow Task\DaneT"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Dane"
+              name="DaneT"
               usesDispositions="true"
               version="4">
               <properties>
@@ -467,7 +467,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[Dane]</property>
+                  name="OpenRowset">[DaneT]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -509,7 +509,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Dane.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\DaneT.Connections[OleDbConnection]"
                   connectionManagerID="{F7DE6962-3F61-478D-969C-25E57574E11F}:external"
                   connectionManagerRefId="Project.ConnectionManagers[LAPTOP-1TUAA7LK_SQLEXPRESS.HD]"
                   description="The OLE DB runtime connection used to access the database."
@@ -517,199 +517,199 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[Date]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[Date]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Date"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[Date]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[Channel]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[Channel]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="Channel"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[Channel]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[Description]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[Description]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="Description"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[Description]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[2nd Description]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[2nd Description]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="2nd Description"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[2nd Description]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[2nd Description]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[2nd Description]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[Start time]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[Start time]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Start time"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Start time]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Start time]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[Start time]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[Duration]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[Duration]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Duration"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Duration]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Duration]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[Duration]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[Variable Target]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[Variable Target]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Variable Target"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Variable Target]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Variable Target]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[Variable Target]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[Total Individuals]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[Total Individuals]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Total Individuals"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Total Individuals]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Total Individuals]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[Total Individuals]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[Podgrupa]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[Podgrupa]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Podgrupa"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Podgrupa]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Podgrupa]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[Podgrupa]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[A16-49]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[A16-49]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="A16-49"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[A16-49]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[A16-49]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[A16-49]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[M16-49]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[M16-49]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="M16-49"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[M16-49]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[M16-49]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[M16-49]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[A4-15]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[A4-15]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="A4-15"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[A4-15]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[A4-15]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[A4-15]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].Columns[A4-9]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].Columns[A4-9]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="A4-9"
-                      externalMetadataColumnId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[A4-9]"
+                      externalMetadataColumnId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[A4-9]"
                       lineageId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output].Columns[A4-9]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
                       codePage="1250"
                       dataType="str"
                       length="100"
                       name="Channel" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
                       codePage="1250"
                       dataType="str"
                       length="100"
                       name="Description" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[2nd Description]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[2nd Description]"
                       codePage="1250"
                       dataType="str"
                       length="100"
                       name="2nd Description" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Start time]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Start time]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="Start time" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Duration]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Duration]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="Duration" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Variable Target]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Variable Target]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="Variable Target" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Total Individuals]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Total Individuals]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="Total Individuals" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Podgrupa]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Podgrupa]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="Podgrupa" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[A16-49]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[A16-49]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="A16-49" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[M16-49]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[M16-49]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="M16-49" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[A4-15]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[A4-15]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="A4-15" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[A4-9]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[A4-9]"
                       codePage="1250"
                       dataType="str"
                       length="50"
                       name="A4-9" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input].ExternalColumns[Column 13]"
+                      refId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input].ExternalColumns[Column 13]"
                       codePage="1250"
                       dataType="str"
                       length="50"
@@ -719,22 +719,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Dane.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\DaneT.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Dane.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\DaneT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Dane.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\DaneT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Dane.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\DaneT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Dane.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\DaneT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1963,7 +1963,7 @@
               startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Flat File Source Output1]"
-              endId="Package\Data Flow Task\Dane.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\DaneT.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
               startId="Package\Data Flow Task\Flat File Source 1.Outputs[Flat File Source Output]" />
           </paths>
@@ -1984,7 +1984,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{F7DE6962-3F61-478D-969C-25E57574E11F}"
-          SQLTask:SqlStatementSource="&#xA;IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;&#xA;&#xA;&#xA;&#xA;CREATE TABLE [HD].[dbo].[KategorieT] (&#xA;    [Program] nvarchar(255),&#xA;    [Kategoria] nvarchar(255)&#xA;)&#xA;&#xA;&#xA;&#xA;DECLARE kursorKat CURSOR FOR&#xA;SELECT [Program], [Kategoria]&#xA;  FROM [HD].[dbo].[Kategorie]&#xA;  DECLARE @ProgramTemp VARCHAR(50), @KategoriaTemp VARCHAR(50)&#xA;&#xA;  OPEN kursorKat &#xA;FETCH NEXT FROM kursorKat INTO @ProgramTemp, @KategoriaTemp&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF (@ProgramTemp IS NOT NULL) AND (@KategoriaTemp IS NOT NULL)&#xA;&#x9;  INSERT INTO [HD].[dbo].[KategorieT] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@ProgramTemp, @KategoriaTemp)&#xA;&#x9;;&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorKat INTO @ProgramTemp, @KategoriaTemp &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorKat &#xA;DEALLOCATE kursorKat&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Kategorie]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Kategorie]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[Kategorie] (&#xA;Program VARCHAR(50),&#xA;Kategoria VARCHAR(50));&#xA;&#xA;INSERT INTO [HD].[dbo].[Kategorie]&#xA;SELECT * FROM [HD].[dbo].[KategorieT]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;&#xA;&#xA;&#xA;&#xA;/*&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;*/&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[kat]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[kat]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[kat] (&#xA;Program VARCHAR(50),&#xA;Grupa VARCHAR(50));&#xA;&#xA;DECLARE kursor CURSOR FOR&#xA;SELECT Program, Grupa&#xA;  FROM [HD].[dbo].[Grupy_mediowe]&#xA;  DECLARE @LICZNIK VARCHAR(50), @PROGRAM VARCHAR(50)&#xA;  DECLARE @GRUPA VARCHAR(50)&#xA;  OPEN kursor &#xA;FETCH NEXT FROM kursor INTO @LICZNIK, @PROGRAM&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF @LICZNIK IS NULL&#xA;&#x9;  SET @GRUPA = @PROGRAM;&#xA;&#xA;&#x9;  ELSE &#xA;&#xA;&#x9;  &#xA;&#x9;  INSERT INTO [HD].[dbo].[kat] (Program, Grupa)&#xA;&#x9;&#x9;VALUES (@PROGRAM, @GRUPA)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursor INTO @LICZNIK, @PROGRAM &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursor &#xA;DEALLOCATE kursor&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Grupy_mediowe]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Grupy_mediowe]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[Grupy_mediowe] (&#xA;Program VARCHAR(50),&#xA;Grupa VARCHAR(50));&#xA;&#xA;INSERT INTO [HD].[dbo].[Grupy_mediowe]&#xA;SELECT * FROM [HD].[dbo].[kat]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[kat]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[kat]; &#xA;&#xA;&#xA;&#xA;  /*&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;  */&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneTemp]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneTemp]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[DaneTemp] (&#xA;&#x9;[Date] varchar(50),&#xA;    [Channel] varchar(100),&#xA;    [Description] varchar(100),&#xA;    [2nd Description] varchar(100),&#xA;    [Start time] varchar(50),&#xA;    [Duration] varchar(50),&#xA;    [Variable Target] varchar(50),&#xA;    [Total Individuals] varchar(50),&#xA;    [Podgrupa] varchar(50),&#xA;    [A16-49] varchar(50),&#xA;    [M16-49] varchar(50),&#xA;    [A4-15] varchar(50),&#xA;    [A4-9] varchar(50),&#xA;&#x9;[column13] varchar(50)&#xA;  )&#xA;&#xA;&#xA;DECLARE kursor1 CURSOR FOR&#xA;SELECT *&#xA;  FROM [HD].[dbo].[Dane]&#xA;  DECLARE @Date VARCHAR(50), @Channel VARCHAR(100), @Description VARCHAR(100), @2ndDescription VARCHAR(100), @StartTime VARCHAR(50), @Duration VARCHAR(50), @VariableTarget VARCHAR(50),&#xA;   @TotalIndividuals VARCHAR(50), @Podgrupa VARCHAR(50), @A16_49 VARCHAR(50), @M16_49 VARCHAR(50), @A4_15 VARCHAR(50), @A4_9 VARCHAR(50), @column13 varchar(50)&#xA;  DECLARE @DateTemp VARCHAR(50), @ChannelTemp VARCHAR(100), @DescriptionTemp VARCHAR(100), @2ndDescriptionTemp VARCHAR(100), @StartTimeTemp VARCHAR(50), @DurationTemp VARCHAR(50), @VariableTargetTemp VARCHAR(50),&#xA;   @TotalIndividualsTemp VARCHAR(50), @PodgrupaTemp VARCHAR(50), @A16_49Temp VARCHAR(50), @M16_49Temp VARCHAR(50), @A4_15Temp VARCHAR(50), @A4_9Temp VARCHAR(50), @column13Temp varchar(50)&#xA;&#xA;  OPEN kursor1 &#xA;&#xA;FETCH NEXT FROM kursor1 INTO  @Date, @Channel, @Description, @2ndDescription, @StartTime, @Duration, @VariableTarget, @TotalIndividuals, @Podgrupa, @A16_49, @M16_49, @A4_15, @A4_9, @column13&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF @Date = ''&#xA;&#x9;    SET @Date = @DateTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DateTemp = @Date;&#xA;&#xA;&#x9;IF @Channel = ''&#xA;&#x9;    SET @Channel = @ChannelTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @ChannelTemp = @Channel;&#xA;&#xA;&#x9;IF @Description = ''&#xA;&#x9;    SET @Description = @DescriptionTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DescriptionTemp = @Description;&#xA;&#xA;&#x9;IF @2ndDescription = ''&#xA;&#x9;    SET @2ndDescription = @2ndDescriptionTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @2ndDescriptionTemp = @2ndDescription;&#xA;&#xA;&#x9;IF @StartTime = ''&#xA;&#x9;    SET @StartTime = @StartTimeTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @StartTimeTemp = @StartTime;&#xA;&#xA;&#x9;IF @Duration = ''&#xA;&#x9;    SET @Duration = @DurationTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DurationTemp = @Duration;&#xA;&#xA;&#x9;IF @VariableTarget = ''&#xA;&#x9;    SET @VariableTarget = @VariableTargetTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @VariableTargetTemp = @VariableTarget;&#xA;&#xA;&#x9;IF @TotalIndividuals = ''&#xA;&#x9;    SET @TotalIndividuals = @TotalIndividualsTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @TotalIndividualsTemp = @TotalIndividuals;&#xA;&#xA;&#x9;IF @Podgrupa = ''&#xA;&#x9;    SET @Podgrupa = @PodgrupaTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @PodgrupaTemp = @Podgrupa;&#xA;&#xA;&#x9;IF @A16_49 = ''&#xA;&#x9;    SET @A16_49 = @A16_49Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A16_49Temp = @A16_49;&#xA;&#xA;&#x9;IF @M16_49 = ''&#xA;&#x9;    SET @M16_49 = @M16_49Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @M16_49Temp = @M16_49;&#xA;&#xA;&#x9;IF @A4_15 = ''&#xA;&#x9;    SET @A4_15 = @A4_15Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A4_15Temp = @A4_15;&#xA;&#xA;&#x9;IF @A4_9 = ''&#xA;&#x9;    SET @A4_9 = @A4_9Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A4_9Temp = @A4_9;&#xA;&#xA;&#x9;IF @column13 = ''&#xA;&#x9;    SET @column13 = @column13Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @column13Temp = @column13;&#xA;&#xA;&#x9;  INSERT INTO [HD].[dbo].[DaneTemp] ([Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9], [column13] )&#xA;&#x9;  VALUES (@DateTemp, @ChannelTemp, @DescriptionTemp, @2ndDescriptionTemp, @StartTimeTemp, @DurationTemp, @VariableTargetTemp, @TotalIndividualsTemp, @PodgrupaTemp, @A16_49Temp, @M16_49Temp, @A4_15Temp, @A4_9Temp, @column13Temp)&#xA;      FETCH NEXT FROM kursor1 INTO @Date, @Channel, @Description, @2ndDescription, @StartTime, @Duration, @VariableTarget, @TotalIndividuals, @Podgrupa, @A16_49, @M16_49, @A4_15, @A4_9, @column13&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursor1 &#xA;DEALLOCATE kursor1&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Dane]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Dane]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[Dane] (&#xA;&#x9;[Date] varchar(50),&#xA;    [Channel] varchar(100),&#xA;    [Description] varchar(100),&#xA;    [2nd Description] varchar(100),&#xA;    [Start time] varchar(50),&#xA;    [Duration] varchar(50),&#xA;    [Variable Target] varchar(50),&#xA;    [Total Individuals] varchar(50),&#xA;    [Podgrupa] varchar(50),&#xA;    [A16-49] varchar(50),&#xA;    [M16-49] varchar(50),&#xA;    [A4-15] varchar(50),&#xA;    [A4-9] varchar(50)&#xA;&#x9;)&#xA;&#xA;INSERT INTO [HD].[dbo].[Dane]([Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9] )&#xA;SELECT [Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9]&#xA;FROM [HD].[dbo].[DaneTemp]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneTemp]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneTemp]; &#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;&#xA;&#xA;&#xA;&#xA;CREATE TABLE [HD].[dbo].[KategorieT] (&#xA;    [Program] nvarchar(255),&#xA;    [Kategoria] nvarchar(255)&#xA;)&#xA;&#xA;&#xA;&#xA;DECLARE kursorKat CURSOR FOR&#xA;SELECT [Program], [Kategoria]&#xA;  FROM [HD].[dbo].[Kategorie]&#xA;  DECLARE @ProgramTemp VARCHAR(50), @KategoriaTemp VARCHAR(50)&#xA;&#xA;  OPEN kursorKat &#xA;FETCH NEXT FROM kursorKat INTO @ProgramTemp, @KategoriaTemp&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF (@ProgramTemp IS NOT NULL) AND (@KategoriaTemp IS NOT NULL)&#xA;&#x9;  INSERT INTO [HD].[dbo].[KategorieT] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@ProgramTemp, @KategoriaTemp)&#xA;&#x9;;&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorKat INTO @ProgramTemp, @KategoriaTemp &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorKat &#xA;DEALLOCATE kursorKat&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Kategorie]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Kategorie]; &#xA;/*&#xA;CREATE TABLE [HD].[dbo].[Kategorie] (&#xA;Program VARCHAR(50),&#xA;Kategoria VARCHAR(50));&#xA;&#xA;INSERT INTO [HD].[dbo].[Kategorie]&#xA;SELECT * FROM [HD].[dbo].[KategorieT]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;*/&#xA;  &#xA;/*&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;*/&#xA;&#xA;&#x9;CREATE TABLE [HD].[dbo].[Kategorie] (&#xA;    [Program] nvarchar(255),&#xA;    [Kategoria] nvarchar(255)&#xA;)&#xA;&#xA;&#x9;DECLARE @SUBSTR INTEGER&#xA;&#xA;&#x9;DECLARE kursorProgram CURSOR FOR&#xA;&#xA;SELECT [Program], [Kategoria]&#xA;  FROM [HD].[dbo].[KategorieT]&#xA;&#xA;  DECLARE @tempProgram VARCHAR(100), @tempProgram2 VARCHAR(100), @tempKategoria VARCHAR(100)&#xA;&#xA;  OPEN kursorProgram &#xA;FETCH NEXT FROM kursorProgram INTO @tempProgram, @tempKategoria&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;&#x9;SET @SUBSTR = CHARINDEX('[', @tempProgram)-2&#xA;&#xA;&#xA;&#x9;IF @SUBSTR &gt; 0 &#xA;&#x9;begin&#xA;&#x9;&#x9;SET @tempProgram2  = SUBSTRING(@tempProgram, 1, @SUBSTR)&#xA;&#x9;INSERT INTO [HD].[dbo].[Kategorie] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@tempProgram2, @tempKategoria)&#xA;&#x9;end&#xA;&#x9;ELSE &#xA;&#xA;&#x9;INSERT INTO [HD].[dbo].[Kategorie] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@tempProgram, @tempKategoria)&#xA;&#x9;;&#xA;&#xA;      FETCH NEXT FROM kursorProgram INTO @tempProgram, @tempKategoria&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorProgram &#xA;DEALLOCATE kursorProgram&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;/*&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;*/&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[kat]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[kat]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[kat] (&#xA;Program VARCHAR(50),&#xA;Grupa VARCHAR(50));&#xA;&#xA;DECLARE kursor CURSOR FOR&#xA;SELECT Program, Grupa&#xA;  FROM [HD].[dbo].[Grupy_mediowe]&#xA;  DECLARE @LICZNIK VARCHAR(50), @PROGRAM VARCHAR(50)&#xA;  DECLARE @GRUPA VARCHAR(50)&#xA;  OPEN kursor &#xA;FETCH NEXT FROM kursor INTO @LICZNIK, @PROGRAM&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF @LICZNIK IS NULL&#xA;&#x9;  SET @GRUPA = @PROGRAM&#xA;&#x9;  ;&#xA;&#xA;&#x9;  ELSE &#xA;&#xA;&#x9;  &#xA;&#x9;  INSERT INTO [HD].[dbo].[kat] (Program, Grupa)&#xA;&#x9;&#x9;VALUES (@PROGRAM, @GRUPA)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursor INTO @LICZNIK, @PROGRAM &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursor &#xA;DEALLOCATE kursor&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Grupy_mediowe]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Grupy_mediowe]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[Grupy_mediowe] (&#xA;Program VARCHAR(50),&#xA;Grupa VARCHAR(50));&#xA;&#xA;INSERT INTO [HD].[dbo].[Grupy_mediowe]&#xA;SELECT * FROM [HD].[dbo].[kat]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[kat]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[kat]; &#xA;&#xA;&#xA;&#xA;  /*&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;  */&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneTemp]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneTemp]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[DaneTemp] (&#xA;&#x9;[Date] varchar(50),&#xA;    [Channel] varchar(100),&#xA;    [Description] varchar(100),&#xA;    [2nd Description] varchar(100),&#xA;    [Start time] varchar(50),&#xA;    [Duration] varchar(50),&#xA;    [Variable Target] varchar(50),&#xA;    [Total Individuals] varchar(50),&#xA;    [Podgrupa] varchar(50),&#xA;    [A16-49] varchar(50),&#xA;    [M16-49] varchar(50),&#xA;    [A4-15] varchar(50),&#xA;    [A4-9] varchar(50),&#xA;&#x9;[column13] varchar(50)&#xA;  )&#xA;&#xA;&#xA;DECLARE kursor1 CURSOR FOR&#xA;SELECT *&#xA;  FROM [HD].[dbo].[DaneT]&#xA;  DECLARE @Date VARCHAR(50), @Channel VARCHAR(100), @Description VARCHAR(100), @2ndDescription VARCHAR(100), @StartTime VARCHAR(50), @Duration VARCHAR(50), @VariableTarget VARCHAR(50),&#xA;   @TotalIndividuals VARCHAR(50), @Podgrupa VARCHAR(50), @A16_49 VARCHAR(50), @M16_49 VARCHAR(50), @A4_15 VARCHAR(50), @A4_9 VARCHAR(50), @column13 varchar(50)&#xA;  DECLARE @DateTemp VARCHAR(50), @ChannelTemp VARCHAR(100), @DescriptionTemp VARCHAR(100), @2ndDescriptionTemp VARCHAR(100), @StartTimeTemp VARCHAR(50), @DurationTemp VARCHAR(50), @VariableTargetTemp VARCHAR(50),&#xA;   @TotalIndividualsTemp VARCHAR(50), @PodgrupaTemp VARCHAR(50), @A16_49Temp VARCHAR(50), @M16_49Temp VARCHAR(50), @A4_15Temp VARCHAR(50), @A4_9Temp VARCHAR(50), @column13Temp varchar(50)&#xA;&#xA;  OPEN kursor1 &#xA;&#xA;FETCH NEXT FROM kursor1 INTO  @Date, @Channel, @Description, @2ndDescription, @StartTime, @Duration, @VariableTarget, @TotalIndividuals, @Podgrupa, @A16_49, @M16_49, @A4_15, @A4_9, @column13&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF @Date = ''&#xA;&#x9;    SET @Date = @DateTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DateTemp = @Date;&#xA;&#xA;&#x9;IF @Channel = ''&#xA;&#x9;    SET @Channel = @ChannelTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @ChannelTemp = @Channel;&#xA;&#xA;&#x9;IF @Description = ''&#xA;&#x9;    SET @Description = @DescriptionTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DescriptionTemp = @Description;&#xA;&#xA;&#x9;IF @2ndDescription = ''&#xA;&#x9;    SET @2ndDescription = @2ndDescriptionTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @2ndDescriptionTemp = @2ndDescription;&#xA;&#xA;&#x9;IF @StartTime = ''&#xA;&#x9;    SET @StartTime = @StartTimeTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @StartTimeTemp = @StartTime;&#xA;&#xA;&#x9;IF @Duration = ''&#xA;&#x9;    SET @Duration = @DurationTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DurationTemp = @Duration;&#xA;&#xA;&#x9;IF @VariableTarget = ''&#xA;&#x9;    SET @VariableTarget = @VariableTargetTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @VariableTargetTemp = @VariableTarget;&#xA;&#xA;&#x9;IF @TotalIndividuals = ''&#xA;&#x9;    SET @TotalIndividuals = @TotalIndividualsTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @TotalIndividualsTemp = @TotalIndividuals;&#xA;&#xA;&#x9;IF @Podgrupa = ''&#xA;&#x9;    SET @Podgrupa = @PodgrupaTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @PodgrupaTemp = @Podgrupa;&#xA;&#xA;&#x9;IF @A16_49 = ''&#xA;&#x9;    SET @A16_49 = @A16_49Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A16_49Temp = @A16_49;&#xA;&#xA;&#x9;IF @M16_49 = ''&#xA;&#x9;    SET @M16_49 = @M16_49Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @M16_49Temp = @M16_49;&#xA;&#xA;&#x9;IF @A4_15 = ''&#xA;&#x9;    SET @A4_15 = @A4_15Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A4_15Temp = @A4_15;&#xA;&#xA;&#x9;IF @A4_9 = ''&#xA;&#x9;    SET @A4_9 = @A4_9Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A4_9Temp = @A4_9;&#xA;&#xA;&#x9;IF @column13 = ''&#xA;&#x9;    SET @column13 = @column13Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @column13Temp = @column13;&#xA;&#xA;&#x9;  INSERT INTO [HD].[dbo].[DaneTemp] ([Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9], [column13] )&#xA;&#x9;  VALUES (@DateTemp, @ChannelTemp, @DescriptionTemp, @2ndDescriptionTemp, @StartTimeTemp, @DurationTemp, @VariableTargetTemp, @TotalIndividualsTemp, @PodgrupaTemp, @A16_49Temp, @M16_49Temp, @A4_15Temp, @A4_9Temp, @column13Temp)&#xA;      FETCH NEXT FROM kursor1 INTO @Date, @Channel, @Description, @2ndDescription, @StartTime, @Duration, @VariableTarget, @TotalIndividuals, @Podgrupa, @A16_49, @M16_49, @A4_15, @A4_9, @column13&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursor1 &#xA;DEALLOCATE kursor1&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneT]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[DaneT] (&#xA;&#x9;[Date] varchar(50),&#xA;    [Channel] varchar(100),&#xA;    [Description] varchar(100),&#xA;    [2nd Description] varchar(100),&#xA;    [Start time] varchar(50),&#xA;    [Duration] varchar(50),&#xA;    [Variable Target] varchar(50),&#xA;    [Total Individuals] varchar(50),&#xA;    [Podgrupa] varchar(50),&#xA;    [A16-49] varchar(50),&#xA;    [M16-49] varchar(50),&#xA;    [A4-15] varchar(50),&#xA;    [A4-9] varchar(50)&#xA;&#x9;)&#xA;&#xA;INSERT INTO [HD].[dbo].[DaneT]([Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9] )&#xA;SELECT [Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9]&#xA;FROM [HD].[dbo].[DaneTemp]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneTemp]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneTemp]; &#xA;&#xA;&#xA;&#xA;&#xA;USE [HD]&#xA;GO&#xA;&#xA;/****** Object:  Table [dbo].[SecondDescription]    Script Date: 16.05.2018 14:47:55 ******/&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;SET ANSI_PADDING ON&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[SecondDescription](&#xA;&#x9;[SecondDescription_ID] [bigint] NOT NULL,&#xA;&#x9;[Nazwa] [varchar](50) NOT NULL,&#xA; CONSTRAINT [PK_SecondDescription] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[SecondDescription_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;USE [HD]&#xA;GO&#xA;&#xA;/****** Object:  Table [dbo].[Description]    Script Date: 16.05.2018 14:47:29 ******/&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;SET ANSI_PADDING ON&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[Description](&#xA;&#x9;[Description_ID] [bigint] NOT NULL,&#xA;&#x9;[Nazwa] [varchar](50) NOT NULL,&#xA;&#x9;[SecondDescription_ID] [bigint] NOT NULL,&#xA; CONSTRAINT [PK_Description] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[Description_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Description]  WITH NOCHECK ADD  CONSTRAINT [FK_Description_SecondDescription] FOREIGN KEY([SecondDescription_ID])&#xA;REFERENCES [dbo].[SecondDescription] ([SecondDescription_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Description] CHECK CONSTRAINT [FK_Description_SecondDescription]&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;USE [HD]&#xA;GO&#xA;&#xA;/****** Object:  Table [dbo].[Channel]    Script Date: 16.05.2018 14:45:39 ******/&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;SET ANSI_PADDING ON&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[Channel](&#xA;&#x9;[Channel_ID] [bigint] NOT NULL,&#xA;&#x9;[Nazwa] [varchar](50) NOT NULL,&#xA;&#x9;[Kategoria] [varchar](50) NOT NULL,&#xA;&#x9;[Grupa] [varchar](50) NOT NULL,&#xA; CONSTRAINT [PK_Channel] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[Channel_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;USE [HD]&#xA;GO&#xA;&#xA;/****** Object:  Table [dbo].[Dane]    Script Date: 16.05.2018 14:47:13 ******/&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;SET ANSI_PADDING ON&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[Dane](&#xA;&#x9;[Dane_ID] [bigint] NOT NULL,&#xA;&#x9;[Date] [varchar](50) NOT NULL,&#xA;&#x9;[Start_time] [varchar](50) NOT NULL,&#xA;&#x9;[Duration] [varchar](50) NOT NULL,&#xA;&#x9;[Channel_ID] [bigint] NOT NULL,&#xA;&#x9;[Description_ID] [bigint] NOT NULL,&#xA;&#x9;[Grupa] [varchar](50) NOT NULL,&#xA;&#x9;[AMR] [varchar](50) NOT NULL,&#xA;&#x9;[AMR%] [varchar](50) NOT NULL,&#xA;&#x9;[SHR%] [varchar](50) NOT NULL,&#xA;&#x9;[RCH%] [varchar](50) NOT NULL,&#xA;&#x9;[RCH] [varchar](50) NOT NULL,&#xA; CONSTRAINT [PK_Dane] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[Dane_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Dane]  WITH NOCHECK ADD  CONSTRAINT [FK_Dane_Channel] FOREIGN KEY([Channel_ID])&#xA;REFERENCES [dbo].[Channel] ([Channel_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Dane] CHECK CONSTRAINT [FK_Dane_Channel]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Dane]  WITH NOCHECK ADD  CONSTRAINT [FK_Dane_Description] FOREIGN KEY([Description_ID])&#xA;REFERENCES [dbo].[Description] ([Description_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Dane] CHECK CONSTRAINT [FK_Dane_Description]&#xA;GO&#xA;&#xA;&#xA;/*&#xA;&#xA;/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////&#xA;UZUPEŁNIENIE SECOND DESCRIPTION&#xA;*/&#xA;&#xA;&#xA;DECLARE kursorSecond CURSOR FOR&#xA;SELECT DISTINCT &#xA;      [2nd Description]&#xA;  FROM [HD].[dbo].[DaneT]&#xA;&#xA;  DECLARE @Licznik_ID INTEGER, @NAZWA VARCHAR(50)&#xA;  SET @Licznik_ID = 1&#xA;  OPEN kursorSecond &#xA;FETCH NEXT FROM kursorSecond INTO @NAZWA&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#xA;&#x9;  INSERT INTO [HD].[dbo].[SecondDescription] (SecondDescription_ID, Nazwa)&#xA;&#x9;&#x9;VALUES (@Licznik_ID, @NAZWA)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;SET @Licznik_ID = @Licznik_ID + 1&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorSecond INTO @NAZWA &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorSecond &#xA;DEALLOCATE kursorSecond&#xA;&#xA;/*&#xA;&#xA;/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////&#xA;UZUPEŁNIENIE DESCRIPTION&#xA;*/&#xA;&#xA;DECLARE kursorFirst CURSOR FOR&#xA;&#xA;SELECT DISTINCT [Description], [HD].[dbo].[SecondDescription].[SecondDescription_ID]&#xA;  FROM [HD].[dbo].[DaneT], [HD].[dbo].[SecondDescription]&#xA;  WHERE [HD].[dbo].[DaneT].[2nd Description] = [HD].[dbo].[SecondDescription].[Nazwa]&#xA;  order by [HD].[dbo].[SecondDescription].[SecondDescription_ID]&#xA;&#xA;  DECLARE @Second_ID INTEGER, @Licznik_ID2 INTEGER, @NAZWA2 VARCHAR(50)&#xA;  SET @Licznik_ID2 = 1&#xA;&#xA;  OPEN kursorFirst &#xA;FETCH NEXT FROM kursorFirst INTO @NAZWA2, @Second_ID&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  INSERT INTO [HD].[dbo].[Description] (Description_ID, Nazwa, SecondDescription_ID)&#xA;&#x9;&#x9;VALUES (@Licznik_ID2, @NAZWA2, @Second_ID)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;SET @Licznik_ID2 = @Licznik_ID2 + 1&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorFirst INTO @NAZWA2, @Second_ID&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorFirst &#xA;DEALLOCATE kursorFirst&#xA;&#xA;&#xA;/*&#xA;&#xA;/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////&#xA;UZUPEŁNIENIE CHANNEL&#xA;*/&#xA;&#xA;DECLARE kursorCannel CURSOR FOR&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;CLOSE kursorCannel &#xA;DEALLOCATE kursorCannel" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2061,115 +2061,37 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="139,42"
-          Id="Package\Data Flow Task\Excel Source"
-          TopLeft="106,81" />
-        <NodeLayout
-          Size="124,42"
-          Id="Package\Data Flow Task\Kategorie"
-          TopLeft="119,213" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Excel Source Output]"
-          TopLeft="178.25,123">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,90"
-              Start="0,0"
-              End="0,82.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,82.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="151,42"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="623,97" />
         <NodeLayout
           Size="148,42"
           Id="Package\Data Flow Task\Excel Source 1"
           TopLeft="350,88" />
         <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="623,97" />
+          Size="155,42"
+          Id="Package\Data Flow Task\Grupy_mediowe"
+          TopLeft="324,212" />
         <NodeLayout
-          Size="115,42"
-          Id="Package\Data Flow Task\Targets"
-          TopLeft="617,217" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="698.5,139">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-24,78"
-              Start="0,0"
-              End="-24,70.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35"
-                    Point2="0,39"
-                    Point3="-4,39" />
-                  <mssgle:LineSegment
-                    End="-20,39" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-20,39"
-                    Point2="-24,39"
-                    Point3="-24,43" />
-                  <mssgle:LineSegment
-                    End="-24,70.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="139,42"
+          Id="Package\Data Flow Task\Excel Source"
+          TopLeft="106,81" />
         <NodeLayout
           Size="160,42"
           Id="Package\Data Flow Task\Flat File Source 1"
           TopLeft="922,91" />
         <NodeLayout
-          Size="103,42"
-          Id="Package\Data Flow Task\Dane"
-          TopLeft="949,217" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output1]"
-          TopLeft="1001.25,133">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,84"
-              Start="0,0"
-              End="0,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="115,42"
+          Id="Package\Data Flow Task\Targets"
+          TopLeft="617,217" />
         <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task\Grupy_mediowe"
-          TopLeft="324,212" />
+          Size="110,42"
+          Id="Package\Data Flow Task\DaneT"
+          TopLeft="949,217" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Data Flow Task\Kategorie"
+          TopLeft="119,213" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Excel Source Output1]"
           TopLeft="424,130">
@@ -2204,37 +2126,115 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="178.25,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90"
+              Start="0,0"
+              End="0,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output1]"
+          TopLeft="1003,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84"
+              Start="0,0"
+              End="0,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="698.5,139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24,78"
+              Start="0,0"
+              End="-24,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="-4,39" />
+                  <mssgle:LineSegment
+                    End="-20,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20,39"
+                    Point2="-24,39"
+                    Point3="-24,43" />
+                  <mssgle:LineSegment
+                    End="-24,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Excel Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Kategorie">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Excel Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Grupy_mediowe">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2260,7 +2260,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Dane">
+    design-time-name="Package\Data Flow Task\DaneT">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2273,7 +2273,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Grupy_mediowe">
+    design-time-name="Package\Data Flow Task\Kategorie">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
