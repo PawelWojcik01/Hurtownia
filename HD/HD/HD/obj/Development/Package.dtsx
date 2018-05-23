@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{15401BEF-7105-432E-AE6F-7607AAAB6A81}">
+  DTS:VersionBuild="94"
+  DTS:VersionGUID="{21B7C8F4-7FF8-415F-8F07-18EC85A2EDFC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -437,6 +437,40 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Channel"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D22E9F36-90CB-4909-BA96-3DCEC60BC5D8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Channel"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F7DE6962-3F61-478D-969C-25E57574E11F}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;&#xA;&#xA;&#xA;&#xA;CREATE TABLE [HD].[dbo].[KategorieT] (&#xA;    [Program] nvarchar(255),&#xA;    [Kategoria] nvarchar(255)&#xA;)&#xA;&#xA;&#xA;&#xA;DECLARE kursorKat CURSOR FOR&#xA;SELECT [Program], [Kategoria]&#xA;  FROM [HD].[dbo].[Kategorie]&#xA;  DECLARE @ProgramTemp VARCHAR(50), @KategoriaTemp VARCHAR(50)&#xA;&#xA;  OPEN kursorKat &#xA;FETCH NEXT FROM kursorKat INTO @ProgramTemp, @KategoriaTemp&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF (@ProgramTemp IS NOT NULL) AND (@KategoriaTemp IS NOT NULL)&#xA;&#x9;  INSERT INTO [HD].[dbo].[KategorieT] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@ProgramTemp, @KategoriaTemp)&#xA;&#x9;;&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorKat INTO @ProgramTemp, @KategoriaTemp &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorKat &#xA;DEALLOCATE kursorKat&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Kategorie]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Kategorie]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[Kategorie] (&#xA;Program VARCHAR(50),&#xA;Kategoria VARCHAR(50));&#xA;&#xA;INSERT INTO [HD].[dbo].[Kategorie]&#xA;SELECT * FROM [HD].[dbo].[KategorieT]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;  &#xA;&#x9;CREATE TABLE [HD].[dbo].[KategorieT] (&#xA;    [Program] nvarchar(255),&#xA;    [Kategoria] nvarchar(255)&#xA;)&#xA;&#xA;&#x9;DECLARE @SUBSTR INTEGER&#xA;&#xA;&#x9;DECLARE kursorProgram CURSOR FOR&#xA;&#xA;SELECT [Program], [Kategoria]&#xA;  FROM [HD].[dbo].[Kategorie]&#xA;&#xA;  DECLARE @tempProgram VARCHAR(100), @tempProgram2 VARCHAR(100), @tempKategoria VARCHAR(100)&#xA;&#xA;  OPEN kursorProgram &#xA;FETCH NEXT FROM kursorProgram INTO @tempProgram, @tempKategoria&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;&#x9;SET @SUBSTR = CHARINDEX('[', @tempProgram)-2&#xA;&#xA;&#xA;&#x9;IF @SUBSTR &gt; 0 &#xA;&#x9;begin&#xA;&#x9;&#x9;SET @tempProgram2  = SUBSTRING(@tempProgram, 1, @SUBSTR)&#xA;&#x9;INSERT INTO [HD].[dbo].[KategorieT] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@tempProgram2, @tempKategoria)&#xA;&#x9;end&#xA;&#x9;ELSE &#xA;&#xA;&#x9;INSERT INTO [HD].[dbo].[KategorieT] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@tempProgram, @tempKategoria)&#xA;&#x9;;&#xA;&#xA;      FETCH NEXT FROM kursorProgram INTO @tempProgram, @tempKategoria&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorProgram &#xA;DEALLOCATE kursorProgram&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;DECLARE kursorChannel CURSOR FOR&#xA;SELECT [HD].[dbo].[KategorieT].[Program], [HD].[dbo].[KategorieT].[Kategoria], [HD].[dbo].[Grupy_mediowe].[Grupa]&#xA;&#xA;  FROM [HD].[dbo].[KategorieT], [HD].[dbo].[Grupy_mediowe]&#xA;where [HD].[dbo].[KategorieT].[Program] = [HD].[dbo].[Grupy_mediowe].[Program]&#xA;&#xA;  DECLARE @Licznik_ID INTEGER, @NAZWA VARCHAR(50), @KATEGORIA VARCHAR(50), @GRUPA VARCHAR(50)&#xA;  SET @Licznik_ID = 1&#xA;  OPEN kursorChannel&#xA;FETCH NEXT FROM kursorChannel INTO @NAZWA, @KATEGORIA, @GRUPA&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#xA;&#x9;  INSERT INTO [HD].[dbo].[Channel] (Channel_ID, Nazwa, Kategoria, Grupa)&#xA;&#x9;&#x9;VALUES (@Licznik_ID, @NAZWA, @KATEGORIA, @GRUPA)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;SET @Licznik_ID = @Licznik_ID + 1&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorChannel INTO @NAZWA, @KATEGORIA, @GRUPA &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorChannel &#xA;DEALLOCATE kursorChannel&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;&#xA; IF OBJECT_ID('[HD].[dbo].[Kategorie]', 'U') IS NOT NULL &#xA; DROP TABLE [HD].[dbo].[Kategorie]; &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dane"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3A7588EB-754D-42BB-AC5F-41A2F6012A80}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dane"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F7DE6962-3F61-478D-969C-25E57574E11F}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[HD].[dbo].[DaneTemp]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneTemp]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[DaneTemp] (&#xA;&#x9;[Date] varchar(50),&#xA;    [Channel] varchar(100),&#xA;    [Description] varchar(100),&#xA;    [2nd Description] varchar(100),&#xA;    [Start time] varchar(50),&#xA;    [Duration] varchar(50),&#xA;    [Variable Target] varchar(50),&#xA;    [Total Individuals] varchar(50),&#xA;    [Podgrupa] varchar(50),&#xA;    [A16-49] varchar(50),&#xA;    [M16-49] varchar(50),&#xA;    [A4-15] varchar(50),&#xA;    [A4-9] varchar(50),&#xA;&#x9;[column13] varchar(50)&#xA;  )&#xA;&#xA;&#xA;DECLARE kursor1 CURSOR FOR&#xA;SELECT *&#xA;  FROM [HD].[dbo].[DaneT]&#xA;  DECLARE @Date VARCHAR(50), @Channel VARCHAR(100), @Description VARCHAR(100), @2ndDescription VARCHAR(100), @StartTime VARCHAR(50), @Duration VARCHAR(50), @VariableTarget VARCHAR(50),&#xA;   @TotalIndividuals VARCHAR(50), @Podgrupa VARCHAR(50), @A16_49 VARCHAR(50), @M16_49 VARCHAR(50), @A4_15 VARCHAR(50), @A4_9 VARCHAR(50), @column13 varchar(50)&#xA;  DECLARE @DateTemp VARCHAR(50), @ChannelTemp VARCHAR(100), @DescriptionTemp VARCHAR(100), @2ndDescriptionTemp VARCHAR(100), @StartTimeTemp VARCHAR(50), @DurationTemp VARCHAR(50), @VariableTargetTemp VARCHAR(50),&#xA;   @TotalIndividualsTemp VARCHAR(50), @PodgrupaTemp VARCHAR(50), @A16_49Temp VARCHAR(50), @M16_49Temp VARCHAR(50), @A4_15Temp VARCHAR(50), @A4_9Temp VARCHAR(50), @column13Temp varchar(50)&#xA;&#xA;  OPEN kursor1 &#xA;&#xA;FETCH NEXT FROM kursor1 INTO  @Date, @Channel, @Description, @2ndDescription, @StartTime, @Duration, @VariableTarget, @TotalIndividuals, @Podgrupa, @A16_49, @M16_49, @A4_15, @A4_9, @column13&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF @Date = ''&#xA;&#x9;    SET @Date = @DateTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DateTemp = @Date;&#xA;&#xA;&#x9;IF @Channel = ''&#xA;&#x9;    SET @Channel = @ChannelTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @ChannelTemp = @Channel;&#xA;&#xA;&#x9;IF @Description = ''&#xA;&#x9;    SET @Description = @DescriptionTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DescriptionTemp = @Description;&#xA;&#xA;&#x9;IF @2ndDescription = ''&#xA;&#x9;    SET @2ndDescription = @2ndDescriptionTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @2ndDescriptionTemp = @2ndDescription;&#xA;&#xA;&#x9;IF @StartTime = ''&#xA;&#x9;    SET @StartTime = @StartTimeTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @StartTimeTemp = @StartTime;&#xA;&#xA;&#x9;IF @Duration = ''&#xA;&#x9;    SET @Duration = @DurationTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DurationTemp = @Duration;&#xA;&#xA;&#x9;IF @VariableTarget = ''&#xA;&#x9;    SET @VariableTarget = @VariableTargetTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @VariableTargetTemp = @VariableTarget;&#xA;&#xA;&#x9;IF @TotalIndividuals = ''&#xA;&#x9;    SET @TotalIndividuals = @TotalIndividualsTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @TotalIndividualsTemp = @TotalIndividuals;&#xA;&#xA;&#x9;IF @Podgrupa = ''&#xA;&#x9;    SET @Podgrupa = @PodgrupaTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @PodgrupaTemp = @Podgrupa;&#xA;&#xA;&#x9;IF @A16_49 = ''&#xA;&#x9;    SET @A16_49 = @A16_49Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A16_49Temp = @A16_49;&#xA;&#xA;&#x9;IF @M16_49 = ''&#xA;&#x9;    SET @M16_49 = @M16_49Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @M16_49Temp = @M16_49;&#xA;&#xA;&#x9;IF @A4_15 = ''&#xA;&#x9;    SET @A4_15 = @A4_15Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A4_15Temp = @A4_15;&#xA;&#xA;&#x9;IF @A4_9 = ''&#xA;&#x9;    SET @A4_9 = @A4_9Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A4_9Temp = @A4_9;&#xA;&#xA;&#x9;IF @column13 = ''&#xA;&#x9;    SET @column13 = @column13Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @column13Temp = @column13;&#xA;&#xA;&#x9;  INSERT INTO [HD].[dbo].[DaneTemp] ([Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9], [column13] )&#xA;&#x9;  VALUES (@DateTemp, @ChannelTemp, @DescriptionTemp, @2ndDescriptionTemp, @StartTimeTemp, @DurationTemp, @VariableTargetTemp, @TotalIndividualsTemp, @PodgrupaTemp, @A16_49Temp, @M16_49Temp, @A4_15Temp, @A4_9Temp, @column13Temp)&#xA;      FETCH NEXT FROM kursor1 INTO @Date, @Channel, @Description, @2ndDescription, @StartTime, @Duration, @VariableTarget, @TotalIndividuals, @Podgrupa, @A16_49, @M16_49, @A4_15, @A4_9, @column13&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursor1 &#xA;DEALLOCATE kursor1&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneT]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[DaneT] (&#xA;&#x9;[Date] varchar(50),&#xA;    [Channel] varchar(100),&#xA;    [Description] varchar(100),&#xA;    [2nd Description] varchar(100),&#xA;    [Start time] varchar(50),&#xA;    [Duration] varchar(50),&#xA;    [Variable Target] varchar(50),&#xA;    [Total Individuals] varchar(50),&#xA;    [Podgrupa] varchar(50),&#xA;    [A16-49] varchar(50),&#xA;    [M16-49] varchar(50),&#xA;    [A4-15] varchar(50),&#xA;    [A4-9] varchar(50)&#xA;&#x9;)&#xA;&#xA;INSERT INTO [HD].[dbo].[DaneT]([Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9] )&#xA;SELECT [Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9]&#xA;FROM [HD].[dbo].[DaneTemp]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneTemp]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneTemp]; &#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
@@ -1971,20 +2005,54 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\Description"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{ED4E5955-E9D2-47A7-AFE0-0041D828DCDC}"
+      DTS:DTSID="{4B8D03DB-CD3C-4853-9BC1-0EE7B23E3F35}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
+      DTS:ObjectName="Description"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{F7DE6962-3F61-478D-969C-25E57574E11F}"
-          SQLTask:SqlStatementSource="&#xA;IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;&#xA;&#xA;&#xA;&#xA;CREATE TABLE [HD].[dbo].[KategorieT] (&#xA;    [Program] nvarchar(255),&#xA;    [Kategoria] nvarchar(255)&#xA;)&#xA;&#xA;&#xA;&#xA;DECLARE kursorKat CURSOR FOR&#xA;SELECT [Program], [Kategoria]&#xA;  FROM [HD].[dbo].[Kategorie]&#xA;  DECLARE @ProgramTemp VARCHAR(50), @KategoriaTemp VARCHAR(50)&#xA;&#xA;  OPEN kursorKat &#xA;FETCH NEXT FROM kursorKat INTO @ProgramTemp, @KategoriaTemp&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF (@ProgramTemp IS NOT NULL) AND (@KategoriaTemp IS NOT NULL)&#xA;&#x9;  INSERT INTO [HD].[dbo].[KategorieT] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@ProgramTemp, @KategoriaTemp)&#xA;&#x9;;&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorKat INTO @ProgramTemp, @KategoriaTemp &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorKat &#xA;DEALLOCATE kursorKat&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Kategorie]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Kategorie]; &#xA;/*&#xA;CREATE TABLE [HD].[dbo].[Kategorie] (&#xA;Program VARCHAR(50),&#xA;Kategoria VARCHAR(50));&#xA;&#xA;INSERT INTO [HD].[dbo].[Kategorie]&#xA;SELECT * FROM [HD].[dbo].[KategorieT]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[KategorieT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[KategorieT]; &#xA;*/&#xA;  &#xA;/*&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;*/&#xA;&#xA;&#x9;CREATE TABLE [HD].[dbo].[Kategorie] (&#xA;    [Program] nvarchar(255),&#xA;    [Kategoria] nvarchar(255)&#xA;)&#xA;&#xA;&#x9;DECLARE @SUBSTR INTEGER&#xA;&#xA;&#x9;DECLARE kursorProgram CURSOR FOR&#xA;&#xA;SELECT [Program], [Kategoria]&#xA;  FROM [HD].[dbo].[KategorieT]&#xA;&#xA;  DECLARE @tempProgram VARCHAR(100), @tempProgram2 VARCHAR(100), @tempKategoria VARCHAR(100)&#xA;&#xA;  OPEN kursorProgram &#xA;FETCH NEXT FROM kursorProgram INTO @tempProgram, @tempKategoria&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;&#x9;SET @SUBSTR = CHARINDEX('[', @tempProgram)-2&#xA;&#xA;&#xA;&#x9;IF @SUBSTR &gt; 0 &#xA;&#x9;begin&#xA;&#x9;&#x9;SET @tempProgram2  = SUBSTRING(@tempProgram, 1, @SUBSTR)&#xA;&#x9;INSERT INTO [HD].[dbo].[Kategorie] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@tempProgram2, @tempKategoria)&#xA;&#x9;end&#xA;&#x9;ELSE &#xA;&#xA;&#x9;INSERT INTO [HD].[dbo].[Kategorie] ([Program], [Kategoria])&#xA;&#x9;&#x9;VALUES (@tempProgram, @tempKategoria)&#xA;&#x9;;&#xA;&#xA;      FETCH NEXT FROM kursorProgram INTO @tempProgram, @tempKategoria&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorProgram &#xA;DEALLOCATE kursorProgram&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;/*&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;*/&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[kat]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[kat]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[kat] (&#xA;Program VARCHAR(50),&#xA;Grupa VARCHAR(50));&#xA;&#xA;DECLARE kursor CURSOR FOR&#xA;SELECT Program, Grupa&#xA;  FROM [HD].[dbo].[Grupy_mediowe]&#xA;  DECLARE @LICZNIK VARCHAR(50), @PROGRAM VARCHAR(50)&#xA;  DECLARE @GRUPA VARCHAR(50)&#xA;  OPEN kursor &#xA;FETCH NEXT FROM kursor INTO @LICZNIK, @PROGRAM&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF @LICZNIK IS NULL&#xA;&#x9;  SET @GRUPA = @PROGRAM&#xA;&#x9;  ;&#xA;&#xA;&#x9;  ELSE &#xA;&#xA;&#x9;  &#xA;&#x9;  INSERT INTO [HD].[dbo].[kat] (Program, Grupa)&#xA;&#x9;&#x9;VALUES (@PROGRAM, @GRUPA)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursor INTO @LICZNIK, @PROGRAM &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursor &#xA;DEALLOCATE kursor&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Grupy_mediowe]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Grupy_mediowe]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[Grupy_mediowe] (&#xA;Program VARCHAR(50),&#xA;Grupa VARCHAR(50));&#xA;&#xA;INSERT INTO [HD].[dbo].[Grupy_mediowe]&#xA;SELECT * FROM [HD].[dbo].[kat]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[kat]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[kat]; &#xA;&#xA;&#xA;&#xA;  /*&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;  */&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneTemp]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneTemp]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[DaneTemp] (&#xA;&#x9;[Date] varchar(50),&#xA;    [Channel] varchar(100),&#xA;    [Description] varchar(100),&#xA;    [2nd Description] varchar(100),&#xA;    [Start time] varchar(50),&#xA;    [Duration] varchar(50),&#xA;    [Variable Target] varchar(50),&#xA;    [Total Individuals] varchar(50),&#xA;    [Podgrupa] varchar(50),&#xA;    [A16-49] varchar(50),&#xA;    [M16-49] varchar(50),&#xA;    [A4-15] varchar(50),&#xA;    [A4-9] varchar(50),&#xA;&#x9;[column13] varchar(50)&#xA;  )&#xA;&#xA;&#xA;DECLARE kursor1 CURSOR FOR&#xA;SELECT *&#xA;  FROM [HD].[dbo].[DaneT]&#xA;  DECLARE @Date VARCHAR(50), @Channel VARCHAR(100), @Description VARCHAR(100), @2ndDescription VARCHAR(100), @StartTime VARCHAR(50), @Duration VARCHAR(50), @VariableTarget VARCHAR(50),&#xA;   @TotalIndividuals VARCHAR(50), @Podgrupa VARCHAR(50), @A16_49 VARCHAR(50), @M16_49 VARCHAR(50), @A4_15 VARCHAR(50), @A4_9 VARCHAR(50), @column13 varchar(50)&#xA;  DECLARE @DateTemp VARCHAR(50), @ChannelTemp VARCHAR(100), @DescriptionTemp VARCHAR(100), @2ndDescriptionTemp VARCHAR(100), @StartTimeTemp VARCHAR(50), @DurationTemp VARCHAR(50), @VariableTargetTemp VARCHAR(50),&#xA;   @TotalIndividualsTemp VARCHAR(50), @PodgrupaTemp VARCHAR(50), @A16_49Temp VARCHAR(50), @M16_49Temp VARCHAR(50), @A4_15Temp VARCHAR(50), @A4_9Temp VARCHAR(50), @column13Temp varchar(50)&#xA;&#xA;  OPEN kursor1 &#xA;&#xA;FETCH NEXT FROM kursor1 INTO  @Date, @Channel, @Description, @2ndDescription, @StartTime, @Duration, @VariableTarget, @TotalIndividuals, @Podgrupa, @A16_49, @M16_49, @A4_15, @A4_9, @column13&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF @Date = ''&#xA;&#x9;    SET @Date = @DateTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DateTemp = @Date;&#xA;&#xA;&#x9;IF @Channel = ''&#xA;&#x9;    SET @Channel = @ChannelTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @ChannelTemp = @Channel;&#xA;&#xA;&#x9;IF @Description = ''&#xA;&#x9;    SET @Description = @DescriptionTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DescriptionTemp = @Description;&#xA;&#xA;&#x9;IF @2ndDescription = ''&#xA;&#x9;    SET @2ndDescription = @2ndDescriptionTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @2ndDescriptionTemp = @2ndDescription;&#xA;&#xA;&#x9;IF @StartTime = ''&#xA;&#x9;    SET @StartTime = @StartTimeTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @StartTimeTemp = @StartTime;&#xA;&#xA;&#x9;IF @Duration = ''&#xA;&#x9;    SET @Duration = @DurationTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @DurationTemp = @Duration;&#xA;&#xA;&#x9;IF @VariableTarget = ''&#xA;&#x9;    SET @VariableTarget = @VariableTargetTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @VariableTargetTemp = @VariableTarget;&#xA;&#xA;&#x9;IF @TotalIndividuals = ''&#xA;&#x9;    SET @TotalIndividuals = @TotalIndividualsTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @TotalIndividualsTemp = @TotalIndividuals;&#xA;&#xA;&#x9;IF @Podgrupa = ''&#xA;&#x9;    SET @Podgrupa = @PodgrupaTemp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @PodgrupaTemp = @Podgrupa;&#xA;&#xA;&#x9;IF @A16_49 = ''&#xA;&#x9;    SET @A16_49 = @A16_49Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A16_49Temp = @A16_49;&#xA;&#xA;&#x9;IF @M16_49 = ''&#xA;&#x9;    SET @M16_49 = @M16_49Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @M16_49Temp = @M16_49;&#xA;&#xA;&#x9;IF @A4_15 = ''&#xA;&#x9;    SET @A4_15 = @A4_15Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A4_15Temp = @A4_15;&#xA;&#xA;&#x9;IF @A4_9 = ''&#xA;&#x9;    SET @A4_9 = @A4_9Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @A4_9Temp = @A4_9;&#xA;&#xA;&#x9;IF @column13 = ''&#xA;&#x9;    SET @column13 = @column13Temp;&#xA;&#x9;  ELSE &#xA;&#x9;&#x9;SET @column13Temp = @column13;&#xA;&#xA;&#x9;  INSERT INTO [HD].[dbo].[DaneTemp] ([Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9], [column13] )&#xA;&#x9;  VALUES (@DateTemp, @ChannelTemp, @DescriptionTemp, @2ndDescriptionTemp, @StartTimeTemp, @DurationTemp, @VariableTargetTemp, @TotalIndividualsTemp, @PodgrupaTemp, @A16_49Temp, @M16_49Temp, @A4_15Temp, @A4_9Temp, @column13Temp)&#xA;      FETCH NEXT FROM kursor1 INTO @Date, @Channel, @Description, @2ndDescription, @StartTime, @Duration, @VariableTarget, @TotalIndividuals, @Podgrupa, @A16_49, @M16_49, @A4_15, @A4_9, @column13&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursor1 &#xA;DEALLOCATE kursor1&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneT]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneT]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[DaneT] (&#xA;&#x9;[Date] varchar(50),&#xA;    [Channel] varchar(100),&#xA;    [Description] varchar(100),&#xA;    [2nd Description] varchar(100),&#xA;    [Start time] varchar(50),&#xA;    [Duration] varchar(50),&#xA;    [Variable Target] varchar(50),&#xA;    [Total Individuals] varchar(50),&#xA;    [Podgrupa] varchar(50),&#xA;    [A16-49] varchar(50),&#xA;    [M16-49] varchar(50),&#xA;    [A4-15] varchar(50),&#xA;    [A4-9] varchar(50)&#xA;&#x9;)&#xA;&#xA;INSERT INTO [HD].[dbo].[DaneT]([Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9] )&#xA;SELECT [Date], [Channel], [Description], [2nd Description], [Start time], [Duration], [Variable Target], [Total Individuals], [Podgrupa], [A16-49], [M16-49], [A4-15], [A4-9]&#xA;FROM [HD].[dbo].[DaneTemp]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[DaneTemp]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[DaneTemp]; &#xA;&#xA;&#xA;&#xA;&#xA;USE [HD]&#xA;GO&#xA;&#xA;/****** Object:  Table [dbo].[SecondDescription]    Script Date: 16.05.2018 14:47:55 ******/&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;SET ANSI_PADDING ON&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[SecondDescription](&#xA;&#x9;[SecondDescription_ID] [bigint] NOT NULL,&#xA;&#x9;[Nazwa] [varchar](50) NOT NULL,&#xA; CONSTRAINT [PK_SecondDescription] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[SecondDescription_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;USE [HD]&#xA;GO&#xA;&#xA;/****** Object:  Table [dbo].[Description]    Script Date: 16.05.2018 14:47:29 ******/&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;SET ANSI_PADDING ON&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[Description](&#xA;&#x9;[Description_ID] [bigint] NOT NULL,&#xA;&#x9;[Nazwa] [varchar](50) NOT NULL,&#xA;&#x9;[SecondDescription_ID] [bigint] NOT NULL,&#xA; CONSTRAINT [PK_Description] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[Description_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Description]  WITH NOCHECK ADD  CONSTRAINT [FK_Description_SecondDescription] FOREIGN KEY([SecondDescription_ID])&#xA;REFERENCES [dbo].[SecondDescription] ([SecondDescription_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Description] CHECK CONSTRAINT [FK_Description_SecondDescription]&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;USE [HD]&#xA;GO&#xA;&#xA;/****** Object:  Table [dbo].[Channel]    Script Date: 16.05.2018 14:45:39 ******/&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;SET ANSI_PADDING ON&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[Channel](&#xA;&#x9;[Channel_ID] [bigint] NOT NULL,&#xA;&#x9;[Nazwa] [varchar](50) NOT NULL,&#xA;&#x9;[Kategoria] [varchar](50) NOT NULL,&#xA;&#x9;[Grupa] [varchar](50) NOT NULL,&#xA; CONSTRAINT [PK_Channel] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[Channel_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;USE [HD]&#xA;GO&#xA;&#xA;/****** Object:  Table [dbo].[Dane]    Script Date: 16.05.2018 14:47:13 ******/&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;SET ANSI_PADDING ON&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[Dane](&#xA;&#x9;[Dane_ID] [bigint] NOT NULL,&#xA;&#x9;[Date] [varchar](50) NOT NULL,&#xA;&#x9;[Start_time] [varchar](50) NOT NULL,&#xA;&#x9;[Duration] [varchar](50) NOT NULL,&#xA;&#x9;[Channel_ID] [bigint] NOT NULL,&#xA;&#x9;[Description_ID] [bigint] NOT NULL,&#xA;&#x9;[Grupa] [varchar](50) NOT NULL,&#xA;&#x9;[AMR] [varchar](50) NOT NULL,&#xA;&#x9;[AMR%] [varchar](50) NOT NULL,&#xA;&#x9;[SHR%] [varchar](50) NOT NULL,&#xA;&#x9;[RCH%] [varchar](50) NOT NULL,&#xA;&#x9;[RCH] [varchar](50) NOT NULL,&#xA; CONSTRAINT [PK_Dane] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[Dane_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Dane]  WITH NOCHECK ADD  CONSTRAINT [FK_Dane_Channel] FOREIGN KEY([Channel_ID])&#xA;REFERENCES [dbo].[Channel] ([Channel_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Dane] CHECK CONSTRAINT [FK_Dane_Channel]&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Dane]  WITH NOCHECK ADD  CONSTRAINT [FK_Dane_Description] FOREIGN KEY([Description_ID])&#xA;REFERENCES [dbo].[Description] ([Description_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dbo].[Dane] CHECK CONSTRAINT [FK_Dane_Description]&#xA;GO&#xA;&#xA;&#xA;/*&#xA;&#xA;/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////&#xA;UZUPEŁNIENIE SECOND DESCRIPTION&#xA;*/&#xA;&#xA;&#xA;DECLARE kursorSecond CURSOR FOR&#xA;SELECT DISTINCT &#xA;      [2nd Description]&#xA;  FROM [HD].[dbo].[DaneT]&#xA;&#xA;  DECLARE @Licznik_ID INTEGER, @NAZWA VARCHAR(50)&#xA;  SET @Licznik_ID = 1&#xA;  OPEN kursorSecond &#xA;FETCH NEXT FROM kursorSecond INTO @NAZWA&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#xA;&#x9;  INSERT INTO [HD].[dbo].[SecondDescription] (SecondDescription_ID, Nazwa)&#xA;&#x9;&#x9;VALUES (@Licznik_ID, @NAZWA)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;SET @Licznik_ID = @Licznik_ID + 1&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorSecond INTO @NAZWA &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorSecond &#xA;DEALLOCATE kursorSecond&#xA;&#xA;/*&#xA;&#xA;/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////&#xA;UZUPEŁNIENIE DESCRIPTION&#xA;*/&#xA;&#xA;DECLARE kursorFirst CURSOR FOR&#xA;&#xA;SELECT DISTINCT [Description], [HD].[dbo].[SecondDescription].[SecondDescription_ID]&#xA;  FROM [HD].[dbo].[DaneT], [HD].[dbo].[SecondDescription]&#xA;  WHERE [HD].[dbo].[DaneT].[2nd Description] = [HD].[dbo].[SecondDescription].[Nazwa]&#xA;  order by [HD].[dbo].[SecondDescription].[SecondDescription_ID]&#xA;&#xA;  DECLARE @Second_ID INTEGER, @Licznik_ID2 INTEGER, @NAZWA2 VARCHAR(50)&#xA;  SET @Licznik_ID2 = 1&#xA;&#xA;  OPEN kursorFirst &#xA;FETCH NEXT FROM kursorFirst INTO @NAZWA2, @Second_ID&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  INSERT INTO [HD].[dbo].[Description] (Description_ID, Nazwa, SecondDescription_ID)&#xA;&#x9;&#x9;VALUES (@Licznik_ID2, @NAZWA2, @Second_ID)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;SET @Licznik_ID2 = @Licznik_ID2 + 1&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorFirst INTO @NAZWA2, @Second_ID&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorFirst &#xA;DEALLOCATE kursorFirst&#xA;&#xA;&#xA;/*&#xA;&#xA;/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////&#xA;UZUPEŁNIENIE CHANNEL&#xA;*/&#xA;&#xA;DECLARE kursorCannel CURSOR FOR&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;CLOSE kursorCannel &#xA;DEALLOCATE kursorCannel" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="CREATE TABLE [HD].[dbo].[Description](&#xA;&#x9;[Description_ID] [bigint] NOT NULL,&#xA;&#x9;[Nazwa] [varchar](100) NOT NULL,&#xA;&#x9;[NazwaSecond] [varchar](100)NOT NULL,&#xA; CONSTRAINT [PK_Description] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[Description_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;&#xA;DECLARE kursorFirst CURSOR FOR&#xA;&#xA;SELECT DISTINCT [HD].[dbo].[DaneT].[Description],[HD].[dbo].[DaneT].[2nd Description]&#xA;  FROM [HD].[dbo].[DaneT]&#xA;&#xA;  DECLARE @NazwaSecond VARCHAR(100), @Licznik_ID2 INTEGER, @NDesc VARCHAR(100)&#xA;  SET @Licznik_ID2 = 1&#xA;&#xA;  OPEN kursorFirst &#xA;FETCH NEXT FROM kursorFirst INTO @NDesc, @NazwaSecond&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  INSERT INTO [HD].[dbo].[Description] (Description_ID, Nazwa, NazwaSecond)&#xA;&#x9;&#x9;VALUES (@Licznik_ID2, @NDesc, @NazwaSecond)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;SET @Licznik_ID2 = @Licznik_ID2 + 1&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorFirst INTO @NDesc, @NazwaSecond&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorFirst &#xA;DEALLOCATE kursorFirst" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Grupy Mediowe"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0A1E70E9-ECEF-4426-BD5C-B8E8D63103B0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Grupy Mediowe"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F7DE6962-3F61-478D-969C-25E57574E11F}"
+          SQLTask:SqlStatementSource="&#xA;IF OBJECT_ID('[HD].[dbo].[kat]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[kat]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[kat] (&#xA;Program VARCHAR(50),&#xA;Grupa VARCHAR(50));&#xA;&#xA;DECLARE kursor CURSOR FOR&#xA;SELECT Program, Grupa&#xA;  FROM [HD].[dbo].[Grupy_mediowe]&#xA;  DECLARE @LICZNIK VARCHAR(50), @PROGRAM VARCHAR(50)&#xA;  DECLARE @GRUPA2 VARCHAR(50)&#xA;  OPEN kursor &#xA;FETCH NEXT FROM kursor INTO @LICZNIK, @PROGRAM&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#x9;  IF @LICZNIK IS NULL&#xA;&#x9;  SET @GRUPA2 = @PROGRAM&#xA;&#x9;  ;&#xA;&#xA;&#x9;  ELSE &#xA;&#xA;&#x9;  &#xA;&#x9;  INSERT INTO [HD].[dbo].[kat] (Program, Grupa)&#xA;&#x9;&#x9;VALUES (@PROGRAM, @GRUPA2)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursor INTO @LICZNIK, @PROGRAM &#xA;&#x9;  &#xA;   END &#xA;CLOSE kursor &#xA;DEALLOCATE kursor&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[Grupy_mediowe]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Grupy_mediowe]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[Grupy_mediowe] (&#xA;Program VARCHAR(50),&#xA;Grupa VARCHAR(50));&#xA;&#xA;INSERT INTO [HD].[dbo].[Grupy_mediowe]&#xA;SELECT * FROM [HD].[dbo].[kat]&#xA;&#xA;IF OBJECT_ID('[HD].[dbo].[kat]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[kat]; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Kalendarz"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{64EF628B-00A7-4B82-8ED1-C8E4E7CD6BB5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Kalendarz"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F7DE6962-3F61-478D-969C-25E57574E11F}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[HD].[dbo].[Kalendarz]', 'U') IS NOT NULL &#xA;  DROP TABLE [HD].[dbo].[Kalendarz]; &#xA;&#xA;CREATE TABLE [HD].[dbo].[Kalendarz](&#xA;&#x9;[Kalendarz_ID] [bigint] NOT NULL,&#xA;&#x9;[Data] [date] NOT NULL,&#xA;&#x9;[Start_time] [time](0) NOT NULL,&#xA;&#x9;[Start_time_med] [varchar](50) NOT NULL,&#xA;&#x9;[Duration] [time](0) NOT NULL&#xA;&#xA;&#x9;&#xA; CONSTRAINT [PK_Kalendarz] PRIMARY KEY CLUSTERED &#xA;(&#xA;&#x9;[Kalendarz_ID] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]&#xA;) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;SET ANSI_PADDING OFF&#xA;GO&#xA;&#xA;/* &#xA;------------------------------------------------------------------------------------------------&#xA;*/&#xA;DECLARE kursorFirst CURSOR FOR&#xA;&#xA;SELECT DISTINCT [HD].[dbo].[DaneT].[Description],[HD].[dbo].[DaneT].[2nd Description], [HD].[dbo].[DaneT].[Date], [HD].[dbo].[DaneT].[Start time], [HD].[dbo].[DaneT].[Duration]&#xA;  FROM [HD].[dbo].[DaneT]&#xA;&#xA;  DECLARE @lICZNIK_KALENDARZ INTEGER, @DATE date, @START_TIME VARCHAR(50), @DURATION VARCHAR(50), @Date_Var VARCHAR(50), @V1 VARCHAR(50), @V2 VARCHAR(50),&#xA;  @DURATION_DATE time(0), @START_TIME_DATE time(0), @HOUR_TOMEDIA VARCHAR(50)&#xA;&#xA;  declare @lewa varchar(50),  @prawa varchar(50), @temp integer&#xA;&#xA;&#xA;  SET @lICZNIK_KALENDARZ = 1&#xA;&#xA;  OPEN kursorFirst &#xA;FETCH NEXT FROM kursorFirst INTO @V1, @V2, @Date_Var, @START_TIME, @DURATION&#xA;WHILE @@FETCH_STATUS = 0 &#xA;   BEGIN &#xA;&#xA;   SET @DURATION_DATE = CONVERT(time(0), @DURATION, 108)&#xA;&#xA;&#x9;&#x9;SET @lewa = left(@START_TIME,2); &#xA;&#x9;&#x9;SET @prawa = right(@START_TIME,6); &#xA;&#x9;&#x9;SET @DATE = CONVERT(date, @Date_Var, 105)&#xA;&#xA;&#x9;&#x9;set @temp = CONVERT(INT, @lewa)&#xA;&#x9;&#x9;if @temp &gt; 23&#xA;&#x9;&#x9;&#x9;begin&#xA;&#x9;&#x9;&#x9;&#x9;set @temp = @temp - 24&#xA;&#x9;&#x9;&#x9;&#x9;set @lewa = CONVERT(varchar(50), @temp)&#xA;&#x9;&#x9;&#x9;&#x9;set @lewa = @lewa + @prawa&#xA;&#x9;&#x9;&#x9;&#x9;set @START_TIME_DATE = convert(time(0), @lewa, 108)&#xA;&#x9;&#x9;&#x9;&#x9;set @DATE = DATEADD(day, 1, @DATE)&#xA;&#x9;&#x9;&#x9;end&#xA;&#x9;&#x9;else&#xA;&#x9;&#x9;  begin&#xA;&#x9;&#x9;    set @START_TIME_DATE = convert(time(0), @START_TIME, 108)&#xA;&#x9;&#x9;  end&#xA;&#x9;&#xA;&#xA;&#x9;  INSERT INTO [HD].[dbo].[Kalendarz] (Kalendarz_ID, Data, Start_time, Start_time_med, Duration)&#xA;&#x9;&#x9;VALUES (@lICZNIK_KALENDARZ, @DATE, @START_TIME_DATE, @START_TIME, @DURATION_DATE)&#xA;&#x9;&#x9;;&#xA;&#x9;&#x9;SET @lICZNIK_KALENDARZ = @lICZNIK_KALENDARZ + 1&#xA;&#x9;&#x9;&#xA;      FETCH NEXT FROM kursorFirst INTO @V1, @V2, @Date_Var, @START_TIME, @DURATION&#xA;&#x9;  &#xA;   END &#xA;CLOSE kursorFirst &#xA;DEALLOCATE kursorFirst&#xA;&#xA;/* &#xA;-----------------------------------------------------------------------------------------------&#xA;*/&#xA;&#xA;&#xA;&#xA; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1992,11 +2060,43 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{02317311-3270-4FD4-A07E-E09401AF77D7}"
+      DTS:DTSID="{35D9562F-A88B-4040-A40E-138E1D4E8C90}"
       DTS:From="Package\Data Flow Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Execute SQL Task" />
+      DTS:To="Package\Dane" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3E5FE074-645C-4498-8B82-6B702D7BCBC0}"
+      DTS:From="Package\Dane"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Grupy Mediowe" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{9C7B9028-C0FE-4D83-9C5D-5F62013DD26E}"
+      DTS:From="Package\Grupy Mediowe"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Channel" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{A172702A-CEF0-46B3-A6C6-EFE8C641D4D0}"
+      DTS:From="Package\Dane"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Description" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{1C3995B2-8767-4C77-89CA-C29070E3BB77}"
+      DTS:From="Package\Dane"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Kalendarz" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2009,41 +2109,169 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task"
           TopLeft="221,98" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="286,248" />
+          Size="103,42"
+          Id="Package\Dane"
+          TopLeft="216,215" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="296.5,140">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="71,108"
+              EndConnector="-29,75"
               Start="0,0"
-              End="71,100.5">
+              End="-29,67.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50" />
+                    End="0,33.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,50"
-                    Point2="0,54"
-                    Point3="4,54" />
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="-4,37.5" />
                   <mssgle:LineSegment
-                    End="67,54" />
+                    End="-25,37.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="67,54"
-                    Point2="71,54"
-                    Point3="71,58" />
+                    Point1="-25,37.5"
+                    Point2="-29,37.5"
+                    Point3="-29,41.5" />
                   <mssgle:LineSegment
-                    End="71,100.5" />
+                    End="-29,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Grupy Mediowe"
+          TopLeft="396,218" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="319,237.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77,0"
+              Start="0,0"
+              End="69.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="117,42"
+          Id="Package\Channel"
+          TopLeft="418,329" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="474.25,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Description"
+          TopLeft="220,327" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="267.5,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18,70"
+              Start="0,0"
+              End="18,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="14,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14,35"
+                    Point2="18,35"
+                    Point3="18,39" />
+                  <mssgle:LineSegment
+                    End="18,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Kalendarz"
+          TopLeft="61,325" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="251.666666666667,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.166666666667,68"
+              Start="0,0"
+              End="-128.166666666667,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.8240917782027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.8240917782027"
+                    Point2="0,27.8240917782027"
+                    Point3="-4,27.8240917782027" />
+                  <mssgle:LineSegment
+                    End="-124.166666666667,27.8240917782027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.166666666667,27.8240917782027"
+                    Point2="-128.166666666667,27.8240917782027"
+                    Point3="-128.166666666667,31.8240917782027" />
+                  <mssgle:LineSegment
+                    End="-128.166666666667,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
