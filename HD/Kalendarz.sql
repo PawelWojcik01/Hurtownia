@@ -4,6 +4,9 @@ IF OBJECT_ID('[HD].[dbo].[Kalendarz]', 'U') IS NOT NULL
 CREATE TABLE [HD].[dbo].[Kalendarz](
 	[Kalendarz_ID] [bigint] NOT NULL,
 	[Data] [date] NOT NULL,
+	[Data_Rok] [varchar](4) NOT NULL,
+	[Data_Miesiac] [varchar](2) NOT NULL,
+	[Data_Dzien] [varchar](2) NOT NULL,
 	[Start_time] [time](0) NOT NULL,
 	[Start_time_med] [varchar](50) NOT NULL,
 	[Duration] [time](0) NOT NULL
@@ -29,7 +32,7 @@ SELECT DISTINCT [HD].[dbo].[DaneT].[Description],[HD].[dbo].[DaneT].[2nd Descrip
   FROM [HD].[dbo].[DaneT]
 
   DECLARE @lICZNIK_KALENDARZ INTEGER, @DATE date, @START_TIME VARCHAR(50), @DURATION VARCHAR(50), @Date_Var VARCHAR(50), @V1 VARCHAR(50), @V2 VARCHAR(50),
-  @DURATION_DATE time(0), @START_TIME_DATE time(0), @HOUR_TOMEDIA VARCHAR(50)
+  @DURATION_DATE time(0), @START_TIME_DATE time(0), @HOUR_TOMEDIA VARCHAR(50), @ROK VARCHAR(4), @MIESIAC VARCHAR(2), @DZIEN VARCHAR(2) 
 
   declare @lewa varchar(50),  @prawa varchar(50), @temp integer
 
@@ -60,10 +63,16 @@ WHILE @@FETCH_STATUS = 0
 		  begin
 		    set @START_TIME_DATE = convert(time(0), @START_TIME, 108)
 		  end
-	
 
-	  INSERT INTO [HD].[dbo].[Kalendarz] (Kalendarz_ID, Data, Start_time, Start_time_med, Duration)
-		VALUES (@lICZNIK_KALENDARZ, @DATE, @START_TIME_DATE, @START_TIME, @DURATION_DATE)
+
+SET @ROK = left(@DATE,4); 
+SET @prawa = right(@DATE,5);
+SET @MIESIAC = left(@prawa, 2);
+SET @DZIEN = right(@DATE, 2);
+
+
+	  INSERT INTO [HD].[dbo].[Kalendarz] (Kalendarz_ID, Data, Data_Rok, Data_Miesiac, Data_Dzien, Start_time, Start_time_med, Duration)
+		VALUES (@lICZNIK_KALENDARZ, @DATE, @ROK, @MIESIAC, @DZIEN, @START_TIME_DATE, @START_TIME, @DURATION_DATE)
 		;
 		SET @lICZNIK_KALENDARZ = @lICZNIK_KALENDARZ + 1
 		

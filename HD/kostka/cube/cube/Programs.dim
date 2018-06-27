@@ -1,0 +1,372 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0aaa3fc2-9f60-47fa-b719-e253c03c5084" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Programs</ID>
+  <Name>Programs</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="4702c2ea-caa2-4f28-8363-30b05436e232">
+    <DataSourceViewID>HD</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="a051f641-8910-44cd-af31-f3ebd1e40230">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="5582aefc-e4d2-4a0b-a3c7-553384924237">
+      <ID>Program ID</ID>
+      <Name>Program ID</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3b791d91-6bc4-4864-817f-8483e4db48af">
+          <NullProcessing>UnknownMember</NullProcessing>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4c21c380-b39d-49ea-b7df-8278aed2c57f">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>ProgramID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="da52d3a2-5dcb-4a7a-a426-442b8499376b">
+          <AttributeID>Start Time</AttributeID>
+          <Name>Start Time</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f95431e3-b8b2-4ba4-9e63-e75d80bee89a">
+          <AttributeID>Start Hour</AttributeID>
+          <Name>Start Hour</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="91a0f0de-5d58-4f32-862c-8c9641866078">
+          <AttributeID>Media Start Hour</AttributeID>
+          <Name>Media Start Hour</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b1dbfe83-d58d-4ad8-bb46-d9d2c21c8de2">
+          <AttributeID>Start Minute</AttributeID>
+          <Name>Start Minute</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a51be1b8-64c4-4141-8535-f6c3bfc2ed50">
+          <AttributeID>Start Second</AttributeID>
+          <Name>Start Second</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="05e71e9c-ee8a-4cfd-b49d-526b6b963766">
+          <AttributeID>Duration</AttributeID>
+          <Name>Duration</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6cffe2a7-45fa-4dc1-ac75-64ebe24cc230">
+          <AttributeID>Description</AttributeID>
+          <Name>Description</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="60e7ba6b-174b-458e-a6da-1cc5fa787b73">
+          <AttributeID>2nd Description</AttributeID>
+          <Name>2nd Description</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8480fb33-f3ba-483c-a013-9a2496bf0d3c">
+          <AttributeID>Channel ID</AttributeID>
+          <Name>Channel ID</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fe8b92df-9a68-4bce-bd9b-59c728ccbb75">
+      <ID>Start Time</ID>
+      <Name>Start Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="baeb6625-5e43-4f67-a1c1-bffc9a105f29">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3babe899-481b-4e59-8239-73c82a657a22">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>StartTime</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bbfa6bc1-8f5d-45d0-b554-558b52cbc772">
+      <ID>Start Hour</ID>
+      <Name>Start Hour</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="600b284f-445a-4904-b595-7ba35e63839f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d3fdb0d1-4078-436f-be67-71e6b74552a2">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>StartHour</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8628206b-09f2-4bf5-b1f4-99334cafd1db">
+      <ID>Media Start Hour</ID>
+      <Name>Media Start Hour</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1128285f-1136-45e5-8d7e-f7d20fa4af41">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="880048a1-4b96-4098-b14d-fda6a562b88b">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>MediaStartHour</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a088e214-2ae9-422a-96f0-badf106b5131">
+      <ID>Start Minute</ID>
+      <Name>Start Minute</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="044648df-b9e1-4064-9813-ddf89f2292af">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="41a85bff-2142-45b7-9031-53d7ba4e957d">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>StartMinute</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="95cec3c1-de5a-422e-8dc7-e1820b16ec22">
+      <ID>Start Second</ID>
+      <Name>Start Second</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="14159d11-f08e-4e4d-ab0e-c6661a324332">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bcace36d-49f6-499c-b0b4-3fec2b4de1a0">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>StartSecond</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8cd03aba-a361-4409-84b6-670958da3838">
+      <ID>Duration</ID>
+      <Name>Duration</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4358a10d-0ea3-4050-808f-bbf55500fcba">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cffa2167-842d-4c59-8f81-da2155255680">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>Duration</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9692dab8-ed40-4d5c-93d7-1de128a3fa5f">
+      <ID>Description</ID>
+      <Name>Description</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a10036a8-609a-4183-a3cc-f1d4f113b5b3">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ba1225d0-6651-4f36-bb9f-7a01d3ca226d">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>Description</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="31355028-dab6-400a-bedc-53b41dc8d7ac">
+      <ID>2nd Description</ID>
+      <Name>2nd Description</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="508abddc-0680-4a46-875d-dca654abc3ab">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5070d8a5-610d-4ce8-adf3-b08f71475234">
+            <TableID>dbo_Programs</TableID>
+            <ColumnID>_x0032_ndDescription</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="26ddb97f-ce54-4102-8b04-5b55866ada85">
+      <ID>Channel ID</ID>
+      <Name>Channel ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="725300d2-be69-4e40-96e0-d41cfd54e9dc">
+          <NullProcessing>UnknownMember</NullProcessing>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b1dc90d5-8479-4846-b1dd-20431bd2bef3">
+            <TableID>dbo_Channel</TableID>
+            <ColumnID>ChannelID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="4d62d293-6561-4189-abc8-2ac2248fc64f">
+          <AttributeID>Channel Name</AttributeID>
+          <Name>Channel Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ac43850d-50d2-487a-a65d-0b865b5d31e5">
+          <AttributeID>Category ID</AttributeID>
+          <Name>Category ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d699e1f6-e479-4ad9-91cd-00e3aaabc907">
+          <AttributeID>Media Group ID</AttributeID>
+          <Name>Media Group ID</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b154c110-b308-4969-b92e-578f8727dac8">
+      <ID>Channel Name</ID>
+      <Name>Channel Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9f8ca0cd-53b2-4123-9cd7-c56d73bb079e">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d9343be5-6962-4238-8741-cb8df4002526">
+            <TableID>dbo_Channel</TableID>
+            <ColumnID>ChannelName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4753362d-5ade-46a6-924d-71a2603b1107">
+      <ID>Category ID</ID>
+      <Name>Category ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="040adf1c-8358-44ad-8112-14b0caa877d6">
+          <NullProcessing>UnknownMember</NullProcessing>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9217bdb1-c476-4d0b-a001-dff2c2914163">
+            <TableID>dbo_Category</TableID>
+            <ColumnID>CategoryID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="80cb35f4-26b3-422d-866d-42edb8a89f75">
+          <AttributeID>Category Name</AttributeID>
+          <Name>Category Name</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="409cecd8-63bd-42ed-a954-a1542683252b">
+      <ID>Category Name</ID>
+      <Name>Category Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="694cbab7-965c-43a1-8f68-f79b9f0bd808">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="266dbda9-fa70-450b-a873-4e7cfe5c45d2">
+            <TableID>dbo_Category</TableID>
+            <ColumnID>CategoryName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="69b05a8d-a368-40f9-8615-5765e31e07c0">
+      <ID>Media Group ID</ID>
+      <Name>Media Group ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ddd5f004-ce2f-45fd-8274-d09013746acb">
+          <NullProcessing>UnknownMember</NullProcessing>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1f23a261-a7e6-4a1a-914b-c2f068c11b60">
+            <TableID>dbo_MediaGroup</TableID>
+            <ColumnID>MediaGroupID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="2354a273-ba06-4399-84f5-f3fe0dc526ac">
+          <AttributeID>Media Group Name</AttributeID>
+          <Name>Media Group Name</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="97f74b2e-9e0e-4425-bbda-3badf7de93ea">
+      <ID>Media Group Name</ID>
+      <Name>Media Group Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1fb8b7b8-981a-47cc-b71e-146306924aac">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="adc92c40-0372-4013-84d2-d70b27265fdd">
+            <TableID>dbo_MediaGroup</TableID>
+            <ColumnID>MediaGroupName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
